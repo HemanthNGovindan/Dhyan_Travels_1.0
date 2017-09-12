@@ -1,3 +1,88 @@
-<p>
-  contact-us works!
-</p>
+<div class="page-content" *ngIf="this.APIService.LoadPage">
+    <div class="content">
+    <h1>{{ContactUsText}}</h1>
+    <div class="contactus-options">
+        <div class="contactus">
+            <div>
+                <span class="nghf ngh-mail hover"></span>
+                <!--<img class="emailIcon" [src]="imgSrcMail" (mouseover)="onMouseOverMail()" (mouseout)="onMouseOutMail()">-->
+            </div>
+            <div class="text">
+                abc.abc@suntrust.com
+            </div>
+        </div>
+        <div class="contactus">
+            <div>
+                <span class="nghf ngh-phone_in_talk"></span>
+            </div>
+            <div class="text">
+                +91 - 9980836494
+            </div>
+        </div>
+        <div class="contactus">
+            <div>
+                <span class="nghf ngh-facebook hover"></span>
+            </div>
+            <div class="text">
+                Dhyan Travels
+            </div>
+        </div>
+    </div>
+
+    <div class="client-info">
+
+        <div class="mid-header">Help us to assist you</div>
+
+        <form id="clientinfo" [formGroup]="contactUsForm">
+            <div class="clientInfoTable">
+
+
+                <div class="clientInfo">
+                    <div class="row">
+                        <div class="text">
+                            <label>Name</label>
+                        </div>
+                        <div class="control">
+                            <div class="input">
+                                <input [ngClass]="{'Error': contactUsForm.controls.FullName.errors}" type="text" formControlName="FullName" />
+                                <p class="error-msg" *ngIf="ReturnValid('FullName')">{{ReturnValid('FullName')}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="text">
+                            <label>Phone Number</label>
+                        </div>
+                        <div class="control">
+                            <div class="input">
+                                <input [ngClass]="{'Error': contactUsForm.controls.PhoneNumber.errors}" type="text" id="phoneNumber" formControlName="PhoneNumber"
+                                    maxlength="10" />
+                                <p class="error-msg" *ngIf="ReturnValid('PhoneNumber')">{{ReturnValid('PhoneNumber')}}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="text">
+                            <label>Email Id</label>
+                        </div>
+                        <div class="control">
+                            <div class="input">
+                                <input [ngClass]="{'Error': contactUsForm.controls.EmailId.errors}" type="text" formControlName="EmailId" />
+                                <p class="error-msg" *ngIf="ReturnValid('EmailId')">{{ReturnValid('EmailId')}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clientInfoButton">
+                    <div>
+                        <button (click)="SubmitContactRequest('SUBMIT')">Submit</button>                        
+                        <button (click)="SubmitContactRequest('CLEAR')">Clear</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+
+    </div>
+
+</div>
