@@ -1,16 +1,24 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
-
+import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
+import { AppRoutes, AppComponents } from './app.routes';
+import { APIService } from './functions/api/services';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AppComponents
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule,
+    HttpModule,
+    AppRoutes
   ],
-  providers: [],
+  providers: [APIService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
