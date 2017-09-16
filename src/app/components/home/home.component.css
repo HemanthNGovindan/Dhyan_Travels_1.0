@@ -21,7 +21,7 @@
 
 .enquiryform {
     position: absolute;
-    top: 36%;
+    top: 46%;
     width: 50%;
     left: 25%;
     background: rgba(9, 28, 44, 0.82);
@@ -43,6 +43,7 @@
     float: left;
     height: 100%;
     line-height: 40px;
+    cursor: pointer;
 }
 
 .enquiryform .enquirytype div:hover {
@@ -131,7 +132,7 @@
 }
 
 @media (max-width:600px) {
-    /* smartphones, iPhone, portrait 480x320 phones */    
+    /* smartphones, iPhone, portrait 480x320 phones */
         .enquiryform {
         top: 2%;
         width: 100%;

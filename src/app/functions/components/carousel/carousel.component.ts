@@ -14,7 +14,7 @@ export class CarouselComponent implements OnInit {
   private cabReqestType = ApplicationConstants.RequestType.CAB;
   private tripReqestType = ApplicationConstants.RequestType.TRIP;
 
-  // @HostBinding('class.animate') 
+  // @HostBinding('class.animate')
   private showText_CAB: boolean = false;
   private showText_TRIP: boolean = false;
   constructor() {
@@ -22,7 +22,7 @@ export class CarouselComponent implements OnInit {
       this.cab_slides.push({
         HeaderText: 'Cab_' + count,
         DescriptionText: 'Decsription about image ' + count,
-        ImgURL: '../../../assets/img/car/' + count + '.jpg',
+        ImgURL: '../assets/img/car/' + count + '.jpg',
         ImageIndex: 'CAB' + count,
         active: (count == 1) ? true : false
       });
