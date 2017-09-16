@@ -1,7 +1,7 @@
 <div class="cabimages" (mouseenter)="PauseAndDisplay(cabReqestType,'pause')" (mouseleave)="PauseAndDisplay(cabReqestType,'play')">
   <div class="img-display" [ngClass]="{'active':cabimg.active}" *ngFor="let cabimg of cab_slides">
     <img id="cab" [src]="cabimg.ImgURL">
-    <div class="image-text left" [ngClass]="{'animatetext':showText_CAB,'animatetextreverse':!showText_CAB}">
+    <div class="image-text left" [ngClass]="{'show':showText_CAB}">
       <h1>{{cabimg.HeaderText}}</h1>
       <p>{{cabimg.DescriptionText}}</p>
     </div>
@@ -13,7 +13,7 @@
 <div class="tourimages" (mouseenter)="PauseAndDisplay(tripReqestType,'pause')" (mouseleave)="PauseAndDisplay(tripReqestType,'play')">
   <div class="img-display" [ngClass]="{'active':tourimg.active}" *ngFor="let tourimg of tour_slides">
     <img id="tour" [src]="tourimg.ImgURL">
-    <div class="image-text right" [ngClass]="{'animatetext':showText_TRIP,'animatetextreverse':!showText_TRIP}">
+    <div class="image-text right" [ngClass]="{'show':showText_TRIP}">
       <h1>{{tourimg.HeaderText}}</h1>
       <p>{{tourimg.DescriptionText}}</p>
     </div>
