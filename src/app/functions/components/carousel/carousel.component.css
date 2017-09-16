@@ -9,6 +9,7 @@
   height: 100%;
   float: left;
   padding: 2px 1px;
+  position: relative;
 }
 
 .tourimages {
@@ -16,6 +17,7 @@
   height: 100%;
   float: right;
   padding: 2px 1px;
+  position: relative;
 }
 
 .cabimages img,
@@ -52,6 +54,12 @@
   text-align: center;
 }
 
+ul.carousel-indicators{
+  list-style: none;
+  position: absolute;
+  left:40%;
+  bottom: 0;
+}
 .carousel-indicators li {
   display: inline-block;
   width: 10px;
@@ -74,7 +82,7 @@
 }
 
 .image-text {
-  transform: translateY(50px);
+  transform: translateY(0px);
   transition: 1s;
   opacity: 0;
   color:rgba(255, 255, 255, 0.75);
@@ -91,11 +99,11 @@
 }
 
 .animatetext {
-  animation: animate 0.5s linear forwards;
+  /*animation: animate 0.5s linear forwards;*/
 }
 
 .animatetextreverse {
-  animation: animatereverse 0.5s linear forwards;
+  /*animation: animatereverse 0.5s linear forwards; */
 }
 
 img {

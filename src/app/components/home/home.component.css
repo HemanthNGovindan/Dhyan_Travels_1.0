@@ -43,6 +43,7 @@
     float: left;
     height: 100%;
     line-height: 40px;
+    cursor: pointer;
 }
 
 .enquiryform .enquirytype div:hover {
