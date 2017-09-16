@@ -7,7 +7,7 @@
     display: inline-block;
     width: 100%;
 }
-.main-header .line-yellow {    
+.main-header .line-yellow {
     height: 2px;
     background-color: #f3cc2f;
     margin-bottom: 3px;
@@ -26,7 +26,7 @@
     font-size: 20px;
 }
 
-.nav .nav-list li {   
+.nav .nav-list li {
     display: table-cell;
     width: 150px;
     height: 30px;
@@ -46,6 +46,11 @@
 .nav .nav-list .select .select {
     border-bottom: 3px solid #00355f;
     transition: border-bottom 0.5s;
+}
+
+.main-section{
+  display: block;
+  min-height: 60%;
 }
 
 @media (max-width:600px) {

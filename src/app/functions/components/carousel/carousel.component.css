@@ -1,156 +1,187 @@
+:host {
+  display: block;
+  height: 370px;
+  overflow: hidden;
+}
 
 .cabimages {
-    width: 50%;
-    height: 100%;
-    float: left;
-    padding: 2px 1px;
-}
-.tourimages {
-    width: 50%;
-    height: 100%;
-    float: right;
-     padding: 2px 1px;
-}
-.cabimages .img-display,
-    .tourimages .img-display{
-     transition: 0.5s;        
-        display: none;
-    }
-.cabimages .active, .tourimages .active {
-        display: block;
-    }
-.carousel-indicators .active{
-         display: inline-block;
-         background: #ffd205;
-    }
-    /*Carousel Component*/
-.cabimages .carousel-indicators{
-    text-align: center;
-}
-.tourimages .carousel-indicators{
-    text-align: center;
+  width: 50%;
+  height: 100%;
+  float: left;
+  padding: 2px 1px;
 }
 
-.carousel-indicators li{
- display: inline-block;
-    width: 10px;
-    height: 10px;
-    margin: 1px;
-    cursor: pointer;
-    background-color:transparent;
-    border: 1px solid #ffd205;
-    border-radius: 10px;
+.tourimages {
+  width: 50%;
+  height: 100%;
+  float: right;
+  padding: 2px 1px;
 }
-.home .cabimages .image-text h1,.home .cabimages .image-text p{
-text-align: left;
+
+.cabimages img,
+.tourimages img {
+  display: block;
+  width: 100%;
+  height: 370px;
 }
-.home .tourimages .image-text h1,.home .tourimages .image-text p{
-text-align: right;
+
+.cabimages .img-display,
+.tourimages .img-display {
+  transition: 0.5s;
+  display: none;
 }
-.home .image-text{
-    transform: translateY(100px);
-    transition: 1s;
-    opacity: 0;
+
+.cabimages .active,
+.tourimages .active {
+  display: block;
 }
-.home .animatetext{
-    animation: animate 1s linear forwards;
+
+.carousel-indicators .active {
+  display: inline-block;
+  background: #ffd205;
 }
-.home .animatetextreverse {
-    animation: animatereverse 0.5s linear forwards;
+
+
+/*Carousel Component*/
+
+.cabimages .carousel-indicators {
+  text-align: center;
 }
-.home img {
-    max-width: 100%;
-    animation: imgopacity 0.5s linear;
+
+.tourimages .carousel-indicators {
+  text-align: center;
+}
+
+.carousel-indicators li {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 1px;
+  cursor: pointer;
+  background-color: transparent;
+  border: 1px solid #ffd205;
+  border-radius: 10px;
+}
+
+.cabimages .image-text h1,
+.cabimages .image-text p {
+  text-align: left;
+}
+
+.tourimages .image-text h1,
+.tourimages .image-text p {
+  text-align: right;
+}
+
+.image-text {
+  transform: translateY(50px);
+  transition: 1s;
+  opacity: 0;
+  color:rgba(255, 255, 255, 0.75);
+  font-size: 0.8rem;
+  padding: 10px 0px;
+}
+.image-text h1{
+  font-size: 20px;
+  margin: 0;
+}
+.image-text p{
+  margin: 0;
+  margin-top: 2px;
+}
+
+.animatetext {
+  animation: animate 0.5s linear forwards;
+}
+
+.animatetextreverse {
+  animation: animatereverse 0.5s linear forwards;
+}
+
+img {
+  max-width: 100%;
+  animation: imgopacity 0.5s linear;
 }
 
 @keyframes imgopacity {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
+
 @keyframes animate {
-   0%
-   {
-        transform: translateY(50px); 
-        opacity: 0;
-   }
-   25%
-   {
-        transform: translateY(30px); 
-        opacity: 0;
-   }
-   50%
-   {
-        transform: translateY(-20px); 
-        opacity: 30;
-   }
-   75%
-   {
-        transform: translateY(-40px); 
-        opacity: 75;
-   }
-   100%
-   {
-        transform: translateY(-60px); 
-        opacity: 100;
-   }
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  25% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(-20px);
+    opacity: 30;
+  }
+  75% {
+    transform: translateY(-40px);
+    opacity: 75;
+  }
+  100% {
+    transform: translateY(-65px);
+    opacity: 100;
+  }
 }
+
 @keyframes animatereverse {
-   0%{
-        transform: translateY(-60px); 
-        opacity: 100;
-   }
-   
-   25%
-   {
-        transform: translateY(-40px); 
-        opacity: 75;
-   }
-  
-   50%
-   {
-        transform: translateY(-20px); 
-        opacity: 30;
-   }
-   75%
-    {
-        transform: translateY(30px); 
-        opacity: 0;
-   }
-   
-   100%
-   {
-        transform: translateY(50px); 
-        opacity: 0;
-   }
-   
+  0% {
+    transform: translateY(-60px);
+    opacity: 100;
+  }
+  25% {
+    transform: translateY(-40px);
+    opacity: 75;
+  }
+  50% {
+    transform: translateY(-20px);
+    opacity: 30;
+  }
+  75% {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
 }
+
 .left {
-    text-align: left;
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.75), rgba(255, 255, 0, 0));
-    padding-left: 5%
+  text-align: left;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.75), rgba(255, 255, 0, 0));
+  padding-left: 5%
 }
 
 .right {
-    text-align: right;
-    background: linear-gradient(to left, rgba(0, 0, 0, 0.75), rgba(255, 255, 0, 0));
-    padding-right: 5%
+  text-align: right;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.75), rgba(255, 255, 0, 0));
+  padding-right: 5%
 }
 
 .home .image-text {
-    position: absolute;
-    top: 290px;
-    color: white;
-    font-size: 13px;
-    width: 50%;
+  position: absolute;
+  top: 290px;
+  color: white;
+  font-size: 13px;
+  width: 50%;
 }
+
 @media (max-width:600px) {
-    /* smartphones, iPhone, portrait 480x320 phones */    
-    .cabimages,
-    .tourimages {
-        display: none;
-    }
+  /* smartphones, iPhone, portrait 480x320 phones */
+  .cabimages,
+  .tourimages {
+    display: none;
+  }
 }
