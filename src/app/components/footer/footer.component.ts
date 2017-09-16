@@ -9,12 +9,13 @@ import { MenuComponent } from '../menu/menu.component';
 export class FooterComponent implements OnInit {
   private LinkItems: any;
   private menuComponentObject: MenuComponent;
+  private currentYear = new Date().getFullYear();
   constructor() {
       this.menuComponentObject = new MenuComponent();
       this.LinkItems = this.menuComponentObject.LinkItems;
   }
   ngOnInit() {
   }
-  
+
 
 }
