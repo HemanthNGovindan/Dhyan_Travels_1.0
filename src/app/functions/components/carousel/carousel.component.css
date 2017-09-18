@@ -85,8 +85,8 @@ ul.carousel-indicators{
   transform: translateY(0px);
   transition: 0.5s;
   opacity: 0;
-  color:rgba(255, 255, 255, 0.75);
-  font-size: 0.8rem;
+  color:rgba(255, 255, 255, 0.85);
+  font-size: 13px;
   padding: 10px 0px;
 }
 .image-text h1{
@@ -129,18 +129,9 @@ img {
   padding-right: 5%
 }
 
-.home .image-text {
-  position: absolute;
-  top: 290px;
-  color: white;
-  font-size: 13px;
-  width: 50%;
-}
-
 @media (max-width:600px) {
   /* smartphones, iPhone, portrait 480x320 phones */
-  .cabimages,
-  .tourimages {
+  :host{
     display: none;
   }
 }
