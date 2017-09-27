@@ -126,8 +126,49 @@
 }
 
 
-/*.clientInfoTable .clientInfoButton button:hover
+@media(max-width:600px)
 {
-        background: rgb(255, 235, 146);
+    .page-content .content .contactus-options {
+        margin-bottom: 20px;
+        height: 80px;
+    }
+     .page-content .content .contactus-options .contactus{
+         height: none;
+     }
+    .page-content .content .contactus-options .contactus span {
+        font-size: 30px;
+    }
+    .page-content .content .contactus-options .contactus .text {
+        font-size: 8px;
+    }
+    .page-content .content .client-info .clientInfoTable .clientInfo .row .text {
+        width: 100%;
+        display: inline-block;
+    }
+    .page-content .content .client-info .clientInfoTable .clientInfo {
+       padding: 1px 0px;
+    }
+    .page-content .content .client-info .clientInfoTable .clientInfo .mid-header{
+        margin: 10px;
+    }
+    .page-content .content .client-info .clientInfoTable .clientInfo .row {      
+    margin: 25px 5px;
+    }
+    .page-content .content .client-info .clientInfoTable .clientInfo .row .text label {
+        float: left;
+    }
+    .page-content .content .client-info .clientInfoTable .clientInfo .row .control,
+    .page-content .content .client-info .clientInfoTable .clientInfo .row .control input {
+        width: 100%;
+    }
+    .page-content .content .client-info{
+        padding: 1% 5%;
+    }
+    .page-content .content .client-info .row .control .error-msg{
+        width: 100%;
+    }
     
-}*/
+    .page-content .content .client-info .clientInfoTable .clientInfoButton {
+        padding-left: 0px;
+    }
+}
