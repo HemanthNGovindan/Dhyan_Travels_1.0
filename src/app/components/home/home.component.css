@@ -68,13 +68,13 @@
 .enquiryform .enquirycontrol .control-group {
     display: block;
     width: 100%;
-    margin: 25px 0;
+    margin: 15px 0;
 }
 
 .enquiryform .enquirycontrol .control-group .control {
     display: inline-block;
     width: 32%;
-    padding: 0 5%;
+    padding: 0 15px;
 }
 
 .enquiryform .enquirycontrol .control-group .control input,
@@ -123,7 +123,7 @@
     padding: 1px 5px;
     top: 10px;
     min-height: 18px;
-    min-width: 142%;
+    min-width: 100%;
     font-size: 12px;
     text-align: left;
     color: whitesmoke;
