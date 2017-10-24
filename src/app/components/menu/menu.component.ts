@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, NavigationStart, Event } from '@angular/router';
+import { APIService } from '../../functions/api/services';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   selector: 'app-menu',
@@ -7,16 +8,27 @@ import { Router, NavigationStart, Event } from '@angular/router';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-
-  constructor() { }
+  public LinkItems: Array<object>;
+  private subscription: Subscription;
+  constructor(public APIService: APIService) {
+    this.subscription = this.APIService.sericeResponded$.subscribe(
+      data => {
+        this.AssignValues();
+      });
+  }
 
   ngOnInit() {
+    if (this.APIService.PageContent.Content !== undefined) {
+      this.AssignValues();
+    }
   }
-    //Application Links
-    public LinkItems = [
-      { LinkName: "Home", Link: "/Home", Active: true },
-      { LinkName: "Cabs", Link: "/Cabs", Active: false },
-      { LinkName: "About", Link: "/AboutUs", Active: false },
-      { LinkName: "Contact", Link: "/ContactUs", Active: false }];
 
+  ngOnDestroy() {
+    //prevent memory leak when component destroyed
+    this.subscription.unsubscribe();
+  }
+
+  AssignValues() {
+    this.LinkItems = this.APIService.PageContent.Content.LinkItems;
+  }
 }

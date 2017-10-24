@@ -73,7 +73,7 @@ export function ValidateField(validationObject: CustomValidationRules, param: Fo
                     if (controlValues == "") {
                         return { 'message': ValidationMessages.Messages.Trip_Places_Required }
                     }
-                    else if (!(ValidationExpression.Expressions.Trip_NumberOfDays_Valid.test(controlValues))) {
+                    else if (!(ValidationExpression.Expressions.Trip_Places.test(controlValues))) {
                         return { 'message': ValidationMessages.Messages.Trip_Places_Valid }
                     }
                     break;
@@ -97,6 +97,29 @@ export function ValidateField(validationObject: CustomValidationRules, param: Fo
         }
         else
             return null;
+    }
+
+}
+
+export class CommonFunction {
+    static returnTRN = function () {
+        let returnTRNValue = '';
+        [].slice.apply(arguments).forEach(function (value) {
+            console.log('value ===', value);
+            value = value.toString();
+            returnTRNValue += value.length == 1 ? '0' + value : value;
+        });
+        return returnTRNValue;
+    }
+    static GenerateTravelReferenceNumber = function (requestType: string) {
+        var dateRef = new Date();
+        var TRN = '';
+        TRN = this.returnTRN(dateRef.getFullYear(), dateRef.getMonth(), dateRef.getDate(), dateRef.getHours(), dateRef.getMinutes(), dateRef.getSeconds(), dateRef.getMilliseconds());
+        TRN = 'R' + requestType.charAt(0) + TRN;
+        return TRN;
+    }
+    static getDomainName = function (hostName) {
+        return hostName.substring(hostName.lastIndexOf(".", hostName.lastIndexOf(".") - 1) + 1);
     }
 
 }

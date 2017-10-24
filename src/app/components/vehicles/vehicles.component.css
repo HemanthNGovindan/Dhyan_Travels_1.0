@@ -6,7 +6,7 @@
 
 .cabsList .cabs-repeat {
     border: 1px solid rgba(0, 53, 95, 0.2);
-    box-shadow: 1px 2px 5px #e4e4e4;
+    box-shadow: 0px 2px 5px #e4e4e4;
     padding: 10px 20px 15px 20px;
     margin: auto;
     width: 100%;
@@ -15,60 +15,86 @@
     border-radius: 2px;
 }
 
-.cabsList .cabs-repeat .cab-details {
+.cabsList .cabs-repeat:hover {
+        box-shadow: 0px 0px 15px #e4e4e4; 
+}
+
+.cabsList .cabs-repeat .cabs {
     overflow: hidden;
 }
 
-.cabsList .cabs-repeat .cab-details .cab-name{
-    font-weight: bold;
-    letter-spacing: 0.5px;
-}
-
-.cabsList .cabs-repeat .cab-details .cab-description {
-    margin-top: 8px;
-}
-
-.cabsList .cabs-repeat .cab-details .cab-description>div {
-    width: calc(calc(100% - 150px) / 2);
+.cabsList .cabs-repeat .cabs .cab-img {    
+    width: 15%;
     float: left;
 }
 
-.cabsList .cabs-repeat .cab-details .cab-description>.cab-img {
-    width: 150px;
-    display: inline-block;
-}
-
-.cabsList .cabs-repeat .cab-details .cab-img>img {
+.cabsList .cabs-repeat .cabs .cab-img>img {
     width: 100%;
-    height: 100px;
+    height: 130px;
 }
 
-.cabsList .cabs-repeat .cab-details .cab-desc {
-    padding-left: 5%;
+.cabsList .cabs-repeat .cabs .cab-description {
+    float: right;
+    width: 80%;
+}
+.cabsList .cabs-repeat .cabs .cab-description>div{
+    width: 100%;
+}
+
+.cabsList .cabs-repeat .cabs .cab-description .cab-title {
+border-bottom: 1px solid rgba(0, 53, 95, 0.2);
+width: 100%;
+}
+.cabsList .cabs-repeat .cabs .cab-description .cab-title .cab-name {
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    float: left;
+    font-size: 20px;
+}
+.cabsList .cabs-repeat .cabs .cab-description .cab-title .cab-subname {
+    letter-spacing: 0.5px;
+    color: rgba(22, 51, 102, 0.48);
+    font-size: 13px;
+    /* content: '-'; */
+    /* float: left; */
+    display: inline-block;
+    padding: 7px 4px;
+}
+.cabsList .cabs-repeat .cabs .cab-description .cab-details>div{
+    width: 45%;
+}
+.cabsList .cabs-repeat .cabs .cab-description .cab-details p{
+    margin: 10px 0px;
+}
+.cabsList .cabs-repeat .cabs .cab-description .cab-details .cab-desc {
     border-right: 1px solid rgba(0, 53, 95, 0.15);
+    float: left;
+    margin: 10px 0px;
+    padding: 0px 15px;
 }
 
-.cabsList .cabs-repeat .cab-details .cab-rate {
-    padding-left: 5%;
+.cabsList .cabs-repeat .cabs .cab-description .cab-details .cab-rate {
+    float: right;
 }
-
-.cabsList .cabs-repeat .cab-details .cab-rate button {
+.cabsList .cabs-repeat .cabs .cab-rate button {
     background: #00355f;
     color: #ffd205;
     outline: none;
     border: none;
-    padding: 8px 12px;
+    padding: 7px 12px;
     border-radius: 4px;
     cursor: pointer;
+    float: right;
+    margin-right: 15px;
 }
 
-.cabsList .cabs-repeat .cab-details .cab-rate button:hover {
+.cabsList .cabs-repeat .cabs .cab-rate button:hover {
     background: #ffd205;
     outline: none;
     color: #00355f;
 }
 
-.cabsList .cabs-repeat .cab-details .nghf::after {
+.cabsList .cabs-repeat .cabs .nghf::after {
     margin-left: 5px;
 }
 
@@ -116,23 +142,38 @@
 }
 
 @media(max-width:450px) {
-    .cabsList .cabs-repeat {
-        font-size: 10px;
+    .cabsList .cabs-repeat .cabs .cab-img {    
+        width: 35%;
+        float: left;
     }
-    .cabsList .cabs-repeat .cab-details .cab-description>.cab-img {
-        width: 100px;
-        height: 85px;
+    .cabsList .cabs-repeat .cabs .cab-description .cab-title .cab-name {
+    font-size: 15px;
     }
-    .cabsList .cabs-repeat .cab-details .cab-img>img{
-        height: 67px;
-    } 
-    .cabsList .cabs-repeat .cab-details .cab-description>.cab-desc {
-        width: calc(100% - 100px);
-        border: 0;
-        padding: 0 0px 0 10px;
+    .cabsList .cabs-repeat .cabs .cab-description .cab-title .cab-subname {
+     padding: 4px 4px;
+     font-size: 11px;
     }
-    .cabsList .cabs-repeat .cab-details .cab-description>.cab-rate {
-        width: calc(100% - 100px);
-        padding: 0 0px 0 10px;
+    .cabsList .cabs-repeat .cabs .cab-description {
+        float: right;
+        width: 60%;
+    }
+    .cabsList .cabs-repeat .cabs .cab-description .cab-details p {
+        margin: 8px 0px;
+    }
+    .cabsList .cabs-repeat .cabs .cab-description .cab-details .cab-desc {
+        border-right: none;
+        float: none;
+        margin: -5px 0px;
+        padding: 0;
+    }
+    .cabsList .cabs-repeat .cabs .cab-description .cab-details>div{
+        width: 100%;
+    }
+    .cabsList .cabs-repeat .cabs .cab-description .cab-details .cab-rate  {
+        float: none;
+        padding: none;
+    }
+    .cabsList .cabs-repeat .cabs .cab-description .cab-details .cab-rate .button-request {
+        margin: 0px;
     }
 }

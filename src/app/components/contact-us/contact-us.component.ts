@@ -17,7 +17,7 @@ export class ContactUsComponent implements OnInit {
   public clientInfoTableClass: string[];
   private validationMessages = ValidationMessages;
   private Submitted: boolean = false;
-  constructor(private fb: FormBuilder, private APIService: APIService) {
+  constructor(private fb: FormBuilder, public APIService: APIService) {
       this.contactUsRequestObject = new ContactUsRequest(new Customer('', '', ''));
       this.clientInfoTableClass = ["clientInfoTable"]
   }

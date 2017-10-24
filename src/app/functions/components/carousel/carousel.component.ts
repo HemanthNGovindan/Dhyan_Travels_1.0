@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ApplicationConstants } from '../../../functions/constants';
 
 @Component({
@@ -7,16 +7,18 @@ import { ApplicationConstants } from '../../../functions/constants';
   styleUrls: ['./carousel.component.css']
 })
 export class CarouselComponent implements OnInit {
-  private cab_slides: Array<any> = [];
-  private tour_slides: Array<any> = [];
+  public cab_slides: Array<any> = [];
+  @Input()
+  public tour_slides: Array<any> = [];
   private timerId_CAB: any;
   private timerId_TRIP: any;
-  private cabReqestType = ApplicationConstants.RequestType.CAB;
-  private tripReqestType = ApplicationConstants.RequestType.TRIP;
+  public cabReqestType = ApplicationConstants.RequestType.CAB;
+  public tripReqestType = ApplicationConstants.RequestType.TRIP;
 
-  // @HostBinding('class.animate')
   private showText_CAB: boolean = false;
   private showText_TRIP: boolean = false;
+
+
   constructor() {
     for (var count = 1; count <= 3; count++) {
       this.cab_slides.push({
@@ -24,14 +26,14 @@ export class CarouselComponent implements OnInit {
         DescriptionText: 'Decsription about image ' + count,
         ImgURL: '../assets/img/car/' + count + '.jpg',
         ImageIndex: 'CAB' + count,
-        active: (count == 1) ? true : false
+        Active: (count == 1) ? true : false
       });
       this.tour_slides.push({
         HeaderText: 'Tour_' + count,
         DescriptionText: 'Decsription about image ' + count,
         ImgURL: '../assets/img/tour/' + count + '.jpg',
         ImageIndex: 'TOUR' + count,
-        active: (count == 1) ? true : false
+        Active: (count == 1) ? true : false
       });
     }
   }
@@ -44,20 +46,20 @@ export class CarouselComponent implements OnInit {
     if (reqestType === this.cabReqestType) {
       for (var iCount = 0; iCount < this.cab_slides.length; iCount++) {
         if (this.cab_slides[iCount].ImageIndex === selectedImage.ImageIndex) {
-          this.cab_slides[iCount].active = true;
+          this.cab_slides[iCount].Active = true;
         }
         else {
-          this.cab_slides[iCount].active = false;
+          this.cab_slides[iCount].Active = false;
         }
       }
     }
     else {
       for (var iCount = 0; iCount < this.tour_slides.length; iCount++) {
         if (this.tour_slides[iCount].ImageIndex === selectedImage.ImageIndex) {
-          this.tour_slides[iCount].active = true;
+          this.tour_slides[iCount].Active = true;
         }
         else {
-          this.tour_slides[iCount].active = false;
+          this.tour_slides[iCount].Active = false;
         }
       }
     }
@@ -83,18 +85,18 @@ export class CarouselComponent implements OnInit {
   changeImage(reqestType: string, selectImage: boolean, selectedImage: any) {
     if (reqestType === this.cabReqestType) {
       for (var iCount = 0; iCount < this.cab_slides.length; iCount++) {
-        if (this.cab_slides[iCount].active) {
-          this.cab_slides[iCount].active = false;
-          this.cab_slides[(this.cab_slides.length - 1) === iCount ? 0 : iCount + 1].active = true;
+        if (this.cab_slides[iCount].Active) {
+          this.cab_slides[iCount].Active = false;
+          this.cab_slides[(this.cab_slides.length - 1) === iCount ? 0 : iCount + 1].Active = true;
           break;
         }
       }
     }
     else {
       for (var iCount = 0; iCount < this.tour_slides.length; iCount++) {
-        if (this.tour_slides[iCount].active) {
-          this.tour_slides[iCount].active = false;
-          this.tour_slides[(this.tour_slides.length - 1) === iCount ? 0 : iCount + 1].active = true;
+        if (this.tour_slides[iCount].Active) {
+          this.tour_slides[iCount].Active = false;
+          this.tour_slides[(this.tour_slides.length - 1) === iCount ? 0 : iCount + 1].Active = true;
           break;
         }
       }

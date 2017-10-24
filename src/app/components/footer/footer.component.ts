@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MenuComponent } from '../menu/menu.component';
+import { APIService } from '../../functions/api/services';
+import { Subscription } from 'rxjs/Subscription';
+import { ReplacingStringValues } from '../../functions/constants';
+
 
 @Component({
   selector: 'app-footer',
@@ -7,15 +10,24 @@ import { MenuComponent } from '../menu/menu.component';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
-  private LinkItems: any;
-  private menuComponentObject: MenuComponent;
-  private currentYear = new Date().getFullYear();
-  constructor() {
-      this.menuComponentObject = new MenuComponent();
-      this.LinkItems = this.menuComponentObject.LinkItems;
+  public LinkItems: any;
+  private Copyright: string;
+  private subscription: Subscription;
+  public CurrentYear: string;
+  public constructor(public APIService: APIService) {
+    this.subscription = this.APIService.sericeResponded$.subscribe(
+      data => {
+        this.LinkItems = this.APIService.PageContent.Content.LinkItems;
+        this.Copyright = this.APIService.PageContent.Content.PageText.Copyright;
+        this.Copyright = (this.Copyright) ? this.Copyright.replace(ReplacingStringValues.CurrentYear, new Date().getFullYear().toString()) : '';
+      });
   }
   ngOnInit() {
   }
 
+  ngOnDestroy() {
+    //prevent memory leak when component destroyed
+    this.subscription.unsubscribe();
+  }
 
 }

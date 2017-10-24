@@ -1,27 +1,19 @@
 <div class="page-content" *ngIf="this.APIService.LoadPage">
     <div class="aboutus">
 
-        <h1>{{aboutUsText}}</h1>
-        <p>{{aboutUsDescription}}</p>
+        <h1>{{AboutUsPageHeader}}</h1>
+        <p>{{AboutUsText}}</p>
         <div class="service">
             <div class="content">
                 <div class="fadedown">
-                       <p class="nghf ngh-car">
-                           <p class="slogan">"We drive your dream with you"
-                               <br/>
-                                <span style="font-weight:normal">- Dhyan Travels </span>
-                           </p>
-                           
+                    <p class="nghf ngh-car">
+                        <p class="slogan" [innerHtml]=TravelSolganText></p>
                 </div>
             </div>
             <div class="content">
                 <div class="fadedown">
                     <p class="nghff nghff-palace">
-                            <p class="slogan">" To travel is to take a journey into yourself"
-                               <br/>                               
-                                    <span style="font-weight:normal">- Danny Kaye</span>
-                            </p>
-                            
+                        <p class="slogan" [innerHtml]=TourSloganText></p>
                 </div>
             </div>
         </div>

@@ -5,10 +5,9 @@
         <div class="contactus">
             <div>
                 <span class="nghf ngh-mail hover"></span>
-                <!--<img class="emailIcon" [src]="imgSrcMail" (mouseover)="onMouseOverMail()" (mouseout)="onMouseOutMail()">-->
             </div>
             <div class="text">
-                abc.abc@suntrust.com
+                {{APIService.PageContent.Content.PageText.ContactUsEmail}}
             </div>
         </div>
         <div class="contactus">
@@ -16,7 +15,7 @@
                 <span class="nghf ngh-phone_in_talk"></span>
             </div>
             <div class="text">
-                +91 - 9980836494
+                {{APIService.PageContent.Content.PageText.ContactUsPhone}}
             </div>
         </div>
         <div class="contactus">
@@ -24,14 +23,14 @@
                 <span class="nghf ngh-facebook hover"></span>
             </div>
             <div class="text">
-                Dhyan Travels
+                {{APIService.PageContent.Content.PageText.ContactUsFacebookPage}}                
             </div>
         </div>
     </div>
 
     <div class="client-info">
 
-        <div class="mid-header">Help us to assist you</div>
+        <div class="mid-header">{{APIService.PageContent.Content.PageText.ContactUsAssistText}}</div>
 
         <form id="clientinfo" [formGroup]="contactUsForm">
             <div class="clientInfoTable">

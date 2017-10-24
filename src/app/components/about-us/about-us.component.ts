@@ -1,18 +1,42 @@
 import { Component, OnInit } from '@angular/core';
 import { APIService } from '../../functions/api/services';
+import { Subscription } from 'rxjs/Subscription';
+
 @Component({
   selector: 'app-about-us',
   templateUrl: './about-us.component.html',
   styleUrls: ['./about-us.component.css']
 })
 export class AboutUsComponent implements OnInit {
+  private AboutUsPageHeader: string;
+  private AboutUsText: string;
+  private TravelSolganText: string;
+  private TourSloganText: string;
+  private subscription: Subscription;
+  constructor(public APIService: APIService) {
 
-  constructor(private APIService: APIService) { }
-  public aboutUsText = "About Us";
-  public aboutUsDescription = "Payana is a new application for transportation, integrates city transportation for customers and driver partners onto a mobile technology platform. As one of India's fastest growing companies we ensure convenient, transparent and quick service fulfilment using technology to make transportation hassle free for everyone.Payana's offerings on its platform ranges from affordable AC cabs to the superior luxury offering as well as localized offerings like the ubiquitous Auto-rickshaws to Shuttle buses for daily commute. Using the Payana mobile app, users across 102 cities can conveniently book from over 450,000 vehicles available to them.We�ve empowered hundreds of thousands of driver-partners as entrepreneurs, by building an ecosystem encompassing financing institutions, car manufacturers, service providers etc. for drivers to grow professionally and personally as well as a consistent earning opportunity for them on the Payana platform.";
+    this.subscription = this.APIService.sericeResponded$.subscribe(
+      data => {
+        this.AssignValues();
+      });
+  }
 
   ngOnInit() {
-    // this.apiService.FetchSiteContents().subscribe(data => console.log(data));
+    if (this.APIService.PageContent.Content !== undefined) {
+      this.AssignValues();
+    }
+  }
+
+  ngOnDestroy() {
+    //prevent memory leak when component destroyed
+    this.subscription.unsubscribe();
+  }
+
+  AssignValues() {
+    this.AboutUsPageHeader = this.APIService.PageContent.Content.PageText.AboutUsPageHeader;
+    this.AboutUsText = this.APIService.PageContent.Content.PageText.AboutUsText;
+    this.TravelSolganText = this.APIService.PageContent.Content.PageText.TravelSolganText;
+    this.TourSloganText = this.APIService.PageContent.Content.PageText.TourSloganText;
   }
 
 }

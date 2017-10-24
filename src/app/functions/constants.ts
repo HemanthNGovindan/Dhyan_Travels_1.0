@@ -15,7 +15,7 @@ export class ValidationExpression {
         'Cab_ToPlace_Valid': /^[a-zA-Z]+$/,
         //Number of Days
         'Trip_NumberOfDays_Valid': /\d{1,2}/,
-        'Trip_Places': /^[a-zA-Z0-9]+$/,
+        'Trip_Places': /[a-zA-Z0-9 ,]+$/,
 
         'EmailId_Valid': /^[a-zA-Z0-9._-]+@([a-zA-Z0-9.-]+\.)+[a-zA-Z0-9.-]{2,4}$/
     }
@@ -76,4 +76,9 @@ export class ApplicationConstants {
         'SUBMIT': 'SUBMIT',
         'CLEAR': 'CLEAR'
     }
+    public static ErrorPath = '/Error';
+}
+
+export class ReplacingStringValues {   
+    public static CurrentYear = '[@CurrentYear@]';
 }
