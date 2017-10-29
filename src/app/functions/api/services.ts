@@ -13,7 +13,7 @@ export class APIService {
     private sericeRespondedSource = new Subject<object>();
     sericeResponded$ = this.sericeRespondedSource.asObservable();
     private headers = new Headers({
-        'Content-Type': 'application/x-www-form-urlencoded'
+        'Content-Type': 'application/json'
     });
 
     constructor(public http: Http) { }

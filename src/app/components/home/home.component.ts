@@ -141,15 +141,18 @@ export class HomeComponent implements OnInit {
                     console.log(this.EnquiryRequest);
                     this.APIService.NotifyCustomer(this.EnquiryRequest).subscribe(data => {
                         this.Response = data;
+                        //console.log("NotifyCustomer: Response ", data);
+                        //if (data.Error || data.Exception || data === null) {
+                            //this.Response.ResultText = 'We failed to serve your request.<br\> Could you please try after some time.<br\> Thank You.'
+                        //}
+                        if (data.Response) {
+                            this.Response.ResultText = 'Your request is at out desk.<br\>  Will reach you soon. <br\> Thank You.';
+                        }
                         this.ShowLoader = false;
-                        console.log("NotifyCustomer: Response ", data);
-                        debugger;
-                        if (data.Error || data.Exception || data === null) {
-                            this.Response.ResultText = 'We failed to serve your request.<br\> Could you please try after some time.<br\> Thank You.'
-                        }
-                        else if (data.Response) {
-                            this.Response.ResultText = 'Your request is at out desk.<br\>  Will reach you soon. <br\> Thank You.'
-                        }
+                    }, error=>{
+                      this.Response = {};
+                      this.Response.ResultText = 'We failed to serve your request.<br\> Could you please try after some time.<br\> Thank You.';
+                      this.ShowLoader = false;
                     });
 
                 }
